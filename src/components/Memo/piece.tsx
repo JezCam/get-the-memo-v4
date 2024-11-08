@@ -11,7 +11,7 @@ export default function Piece(props: { type: string; colours: string[] }) {
     switch (props.type) {
         case 'corner':
             return resolvedTheme == 'light' ? (
-                <div className="h-full">
+                <div className="h-full flex">
                     <CornerLight
                         a={props.colours[0]}
                         b={props.colours[1]}
@@ -19,7 +19,7 @@ export default function Piece(props: { type: string; colours: string[] }) {
                     />
                 </div>
             ) : (
-                <div className="h-full">
+                <div className="h-full flex">
                     <CornerDark
                         a={props.colours[0]}
                         b={props.colours[1]}
@@ -30,11 +30,11 @@ export default function Piece(props: { type: string; colours: string[] }) {
 
         case 'edge':
             return resolvedTheme == 'light' ? (
-                <div className="h-full">
+                <div className="h-full flex">
                     <EdgeLight a={props.colours[0]} b={props.colours[1]} />
                 </div>
             ) : (
-                <div className="h-full">
+                <div className="h-full flex">
                     <EdgeDark a={props.colours[0]} b={props.colours[1]} />
                 </div>
             )

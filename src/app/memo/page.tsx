@@ -95,7 +95,7 @@ export default function Board() {
             <div className="order-2">
                 <Stats correct={correct} incorrect={incorrect} />
             </div>
-            <div className="order-3 h-fit xl:h-full">
+            <div className="order-3">
                 <Play
                     colours={colours}
                     letters={letters}
