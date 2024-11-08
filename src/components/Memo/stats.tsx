@@ -5,7 +5,7 @@ import MemoLink from '../ui/memo-link'
 
 export default function Stats(props: { correct: number; incorrect: number }) {
     return (
-        <Card className="flex flex-col min-h-fit gap-8 p-3 bg-card justify-between">
+        <Card className="flex flex-col min-h-fit w-full gap-8 p-3 bg-card justify-between">
             <div className="flex justify-between">
                 <div className="flex gap-1.5 items-center">
                     <ChartNoAxesColumn className="text-foreground w-4 h-4" />

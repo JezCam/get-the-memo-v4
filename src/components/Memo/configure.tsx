@@ -53,12 +53,12 @@ export default function Configure(props: {
     }, [props.letters, props.colours, props.selection])
 
     return (
-        <Card className="p-3 bg-card flex flex-col gap-6 h-full">
-            <div className="flex gap-1.5 items-center">
+        <Card className="p-3 bg-card flex flex-col gap-6 h-full items-center">
+            <div className="flex gap-1.5 items-center w-full">
                 <Settings className="text-foreground w-4 h-4" />
                 <h4>Configure Memo </h4>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-full">
                 <p className="font-bold">Piece Selection</p>
                 <RadioGroup
                     onValueChange={(value) => {
@@ -109,12 +109,12 @@ export default function Configure(props: {
                 </RadioGroup>
             </div>
             {/* Colour and Letter Scheme */}
-            <div className="flex flex-col gap-3 h-fit">
+            <div className="flex flex-col gap-3 h-fit w-full">
                 <div className="flex justify-between">
                     <p className="font-bold">Colour and Letter Scheme</p>
                     {/* <MemoLink text="View Trending Colours" href="/colours" /> */}
                 </div>
-                <div className="flex bg-primary/10 rounded-sm p-3 gap-3 h-fit">
+                <div className="flex bg-primary/10 rounded-sm p-3 gap-3 h-fit justify-center">
                     {[0, 0, 0, 0, 0, 0].map((_, index) => (
                         <div
                             onClick={() => changeColour(index)}
@@ -127,46 +127,46 @@ export default function Configure(props: {
                         <RefreshCw className="w-4 h-4 text-primary" />
                     </div>
                 </div>
-                <div className="flex bg-primary/10 rounded-sm p-8 gap-3 w-fit h-fit relative">
-                    {/* Lines */}
-                    <div className="absolute top-3 left-0 w-full px-8 h-2">
-                        <div
-                            style={{
-                                backgroundColor:
-                                    colours[bordersRemap[colour][0]],
-                            }}
-                            className="rounded-full w-full h-full"
-                        ></div>
-                    </div>
-                    <div className="absolute bottom-3 left-0 w-full px-8 h-2">
-                        <div
-                            style={{
-                                backgroundColor:
-                                    colours[bordersRemap[colour][1]],
-                            }}
-                            className="rounded-full w-full h-full"
-                        ></div>
-                    </div>
-                    <div className="absolute top-0 right-3 h-full py-8 w-2">
-                        <div
-                            style={{
-                                backgroundColor:
-                                    colours[bordersRemap[colour][2]],
-                            }}
-                            className="rounded-full w-full h-full"
-                        ></div>
-                    </div>
-                    <div className="absolute top-0 left-3 h-full py-8 w-2">
-                        <div
-                            style={{
-                                backgroundColor:
-                                    colours[bordersRemap[colour][3]],
-                            }}
-                            className="rounded-full w-full h-full"
-                        ></div>
-                    </div>
+                <div className="flex bg-primary/10 rounded-sm p-8 gap-3 w-full h-fit justify-center">
                     {/* Squares */}
-                    <div className="grid grid-cols-3 gap-3 w-fit h-fit">
+                    <div className="grid grid-cols-3 gap-3 w-fit h-fit relative">
+                        {/* Lines */}
+                        <div className="absolute -top-5 left-0 w-full h-2">
+                            <div
+                                style={{
+                                    backgroundColor:
+                                        colours[bordersRemap[colour][0]],
+                                }}
+                                className="rounded-full w-full h-full"
+                            ></div>
+                        </div>
+                        <div className="absolute -bottom-5 left-0 w-full h-2">
+                            <div
+                                style={{
+                                    backgroundColor:
+                                        colours[bordersRemap[colour][1]],
+                                }}
+                                className="rounded-full w-full h-full"
+                            ></div>
+                        </div>
+                        <div className="absolute top-0 -right-5 h-full w-2">
+                            <div
+                                style={{
+                                    backgroundColor:
+                                        colours[bordersRemap[colour][2]],
+                                }}
+                                className="rounded-full w-full h-full"
+                            ></div>
+                        </div>
+                        <div className="absolute top-0 -left-5 h-full w-2">
+                            <div
+                                style={{
+                                    backgroundColor:
+                                        colours[bordersRemap[colour][3]],
+                                }}
+                                className="rounded-full w-full h-full"
+                            ></div>
+                        </div>
                         {[0, 0, 0, 0, 0, 0, 0, 0, 0].map((_, index) =>
                             index != 4 ? (
                                 <div

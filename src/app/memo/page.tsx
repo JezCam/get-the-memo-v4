@@ -83,15 +83,19 @@ export default function Board() {
     }
 
     return (
-        <div className="h-full flex gap-3 p-4">
-            {/* Left */}
-            <div className="flex flex-col gap-6 w-full">
+        <div className="h-full grid xl:grid-cols-[1fr,min-content] gap-3 p-4">
+            <div className="order-4 xl:order-1">
                 <TimeChallenges
                     score={timeChallengeScore}
                     bests={timeChallengeBests}
                     updateChallengeBest={handleUpdateChallengeBest}
                     updateChallengeState={handleUpdateChallengeState}
                 />
+            </div>
+            <div className="order-2">
+                <Stats correct={correct} incorrect={incorrect} />
+            </div>
+            <div className="order-3 h-fit xl:h-full">
                 <Play
                     colours={colours}
                     letters={letters}
@@ -100,9 +104,7 @@ export default function Board() {
                     onIncorrect={handleIncorrect}
                 />
             </div>
-            {/* Right */}
-            <div className="flex flex-col gap-6">
-                <Stats correct={correct} incorrect={incorrect} />
+            <div className="order-4">
                 <Configure
                     onUpdateSelection={handleUpdateSelection}
                     selection={selection}

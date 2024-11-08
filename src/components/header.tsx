@@ -25,12 +25,12 @@ export default function Header() {
                 <Separator orientation="vertical" className="mr-2 h-4" />
                 <Breadcrumb>
                     <BreadcrumbList>
-                        <BreadcrumbItem className="hidden md:block">
+                        <BreadcrumbItem>
                             <BreadcrumbLink href="/">Home</BreadcrumbLink>
                         </BreadcrumbItem>
                         {pathname != '/' && (
                             <>
-                                <BreadcrumbSeparator className="hidden md:block" />
+                                <BreadcrumbSeparator />
                                 <BreadcrumbItem>
                                     <BreadcrumbPage>
                                         {titleCase(pathname.slice(1))}

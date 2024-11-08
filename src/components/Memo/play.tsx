@@ -203,18 +203,16 @@ export default function Play(props: {
                 </p>
             </div>
             {/* Piece only needs to know what type it is, and either 2 or 3 colours */}
-            <div className="flex items-center justify-center flex-1 max-w-full">
-                <Piece
-                    type={piece ? piece.type : 'corner'}
-                    colours={piece ? pieceColours : ['#FFF', '#FFF', '#FFF']}
-                />
-            </div>
+            <Piece
+                type={piece ? piece.type : 'corner'}
+                colours={piece ? pieceColours : ['#FFF', '#FFF', '#FFF']}
+            />
             <form
                 onSubmit={(e) => handleSubmit(e)}
-                className="flex flex-col p-3 pt-0 gap-3 w-full max-w-[900px]"
+                className="flex flex-col pt-0 gap-3 w-full max-w-[600px] xl:max-w-[900px]"
             >
                 {/* Inputs */}
-                <div className="flex gap-[20px]">
+                <div className="flex gap-3">
                     {/* A */}
                     <Input
                         disabled={state === State.Revealed}
@@ -269,7 +267,7 @@ export default function Play(props: {
                     )}
                 </div>
                 {state === State.Guessing || state === State.TryingAgain ? (
-                    <div className="flex gap-[20px]">
+                    <div className="flex gap-3">
                         <Button
                             onClick={handleReveal}
                             variant="destructive"
