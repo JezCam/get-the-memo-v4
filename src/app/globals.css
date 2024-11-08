@@ -86,3 +86,23 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+h1 {
+    @apply scroll-m-20 text-4xl font-bold lg:text-5xl;
+}
+
+h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold first:mt-0;
+}
+
+h3 {
+    @apply scroll-m-20 text-2xl font-semibold;
+}
+
+h4 {
+    @apply scroll-m-20 text-sm font-medium;
+}
+
+p {
+    @apply text-muted-foreground text-xs;
+}
