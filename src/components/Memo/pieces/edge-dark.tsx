@@ -3,9 +3,7 @@ import React from 'react'
 export default function EdgeDark(props: { a: string; b: string }) {
     return (
         <svg
-            height="100%"
-            width="auto"
-            display="block"
+            className="block h-auto w-full xl:h-full xl:w-auto"
             viewBox="0 0 371 408"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
