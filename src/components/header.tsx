@@ -13,13 +13,14 @@ import {
 } from './ui/breadcrumb'
 import { usePathname } from 'next/navigation'
 import { titleCase } from '@/lib/utils'
+import { ModeToggle } from './mode-toggle'
 
 export default function Header() {
     const pathname = usePathname()
 
     return (
-        <header className="flex h-16 shrink-0 items-center gap-2">
-            <div className="flex items-center gap-2 px-4">
+        <header className="flex h-fit shrink-0 items-center gap-2 justify-between px-4 pt-4">
+            <div className="flex items-center gap-2">
                 <SidebarTrigger className="-ml-1" />
                 <Separator orientation="vertical" className="mr-2 h-4" />
                 <Breadcrumb>
@@ -40,6 +41,7 @@ export default function Header() {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
+            <ModeToggle />
         </header>
     )
 }

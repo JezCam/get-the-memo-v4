@@ -1,9 +1,9 @@
 'use client'
 
 import * as React from 'react'
-import { ChevronsUpDown, Plus } from 'lucide-react'
+import { ChevronsUpDown } from 'lucide-react'
 
-import Logo from '../../public/logo.svg'
+import Logo from '../../../public/logo.svg'
 
 import {
     DropdownMenu,

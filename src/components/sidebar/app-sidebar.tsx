@@ -19,6 +19,7 @@ import {
 import { NavMain } from './nav'
 import { LogoLinks } from './logo-links'
 import { NavUser } from './nav-user'
+import Streak from './streak'
 
 // This is sample data.
 const data = {
@@ -88,7 +89,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     items={data.community.items}
                 />
             </SidebarContent>
-            <SidebarFooter>
+            <SidebarFooter className="overflow-hidden">
+                <Streak />
                 <NavUser user={data.user} />
             </SidebarFooter>
             <SidebarRail />

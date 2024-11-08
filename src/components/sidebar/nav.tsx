@@ -22,14 +22,18 @@ export function NavMain({
 }) {
     return (
         <SidebarGroup>
-            <SidebarGroupLabel>{title}</SidebarGroupLabel>
+            <SidebarGroupLabel className="font-bold">{title}</SidebarGroupLabel>
             <SidebarMenu>
                 {items.map((item) => (
                     <SidebarMenuItem key={item.name}>
-                        <SidebarMenuButton tooltip={item.name} asChild>
+                        <SidebarMenuButton
+                            tooltip={item.name}
+                            asChild
+                            className="py-2.5 h-fit"
+                        >
                             <a href={item.url}>
                                 {item.icon && <item.icon />}
-                                <span>{item.name}</span>
+                                <span className="font-medium">{item.name}</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
