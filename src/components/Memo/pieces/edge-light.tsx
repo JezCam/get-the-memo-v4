@@ -5,6 +5,7 @@ export default function EdgeLight(props: { a: string; b: string }) {
         <svg
             height="100%"
             width="auto"
+            display="block"
             viewBox="0 0 371 408"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
