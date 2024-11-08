@@ -226,7 +226,7 @@ export default function Play(props: {
                                 '--text-colour': inputTextColour,
                             } as React.CSSProperties
                         }
-                        className={`!text-[var(--text-colour)] text-center text-2xl p-3 h-fit bg-background !border-[var(--text-colour)] focus:outline-none focus:!ring-2 !ring-[var(--ring-colour)] ring-offset-background focus:ring-offset-2`}
+                        className={`!text-[var(--text-colour)] text-center !text-2xl p-3 h-fit bg-background !border-[var(--text-colour)] focus:outline-none focus:!ring-2 !ring-[var(--ring-colour)] ring-offset-background focus:ring-offset-2`}
                     />
                     {/* B */}
                     <Input
@@ -246,7 +246,7 @@ export default function Play(props: {
                                 '--text-colour': inputTextColour,
                             } as React.CSSProperties
                         }
-                        className={`!text-[var(--text-colour)] text-center text-2xl p-3 h-fit bg-background !border-[var(--text-colour)] focus:outline-none focus:!ring-2 !ring-[var(--ring-colour)] ring-offset-background focus:ring-offset-2`}
+                        className={`!text-[var(--text-colour)] text-center !text-2xl p-3 h-fit bg-background !border-[var(--text-colour)] focus:outline-none focus:!ring-2 !ring-[var(--ring-colour)] ring-offset-background focus:ring-offset-2`}
                     />
                     {/* C */}
                     {piece?.type == 'corner' && (
@@ -262,7 +262,7 @@ export default function Play(props: {
                                     '--text-colour': inputTextColour,
                                 } as React.CSSProperties
                             }
-                            className={`!text-[var(--text-colour)] text-center text-2xl p-3 h-fit bg-background !border-[var(--text-colour)] focus:outline-none focus:!ring-2 !ring-[var(--ring-colour)] ring-offset-background focus:ring-offset-2`}
+                            className={`!text-[var(--text-colour)] text-center !text-2xl p-3 h-fit bg-background !border-[var(--text-colour)] focus:outline-none focus:!ring-2 !ring-[var(--ring-colour)] ring-offset-background focus:ring-offset-2`}
                         />
                     )}
                 </div>

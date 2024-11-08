@@ -24,7 +24,7 @@ export default function TimeChallenges(props: {
                 <Timer className="text-foreground w-4 h-4" />
                 <h4>Time Challenges</h4>
             </div>
-            <div className="flex gap-3 w-full h-[4.5rem] items-center justify-center font-semibold text-foreground/50">
+            <div className="flex gap-3 w-full h-[4.5rem] items-start justify-center font-semibold text-foreground/50">
                 Coming soon...
                 {/* {challengeConfig.map((challenge, index) => (
                     <div className="flex w-full flex-col gap-3 min-w-fit transition-all duration-500">

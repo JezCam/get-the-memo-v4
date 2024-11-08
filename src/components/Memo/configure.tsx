@@ -189,7 +189,7 @@ export default function Configure(props: {
                                                 e.target.value.slice(0, 1)
                                             )
                                         }
-                                        className="w-10 h-full text-2xl text-center text-foreground"
+                                        className="w-10 h-10 !text-lg text-center text-foreground !px-0"
                                     />
                                 </div>
                             ) : (
