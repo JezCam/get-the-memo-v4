@@ -183,13 +183,17 @@ export default function Configure(props: {
                                                     letterRemap[index]
                                             ]
                                         }
-                                        onChange={(e) =>
+                                        onChange={(e) => {
+                                            if (!e.target.value) {
+                                                e.preventDefault()
+                                                return
+                                            }
                                             updateLetters(
                                                 index,
                                                 e.target.value.slice(0, 1)
                                             )
-                                        }
-                                        className="w-10 h-10 !text-lg text-center text-foreground !px-0"
+                                        }}
+                                        className="w-10 h-10 !text-lg text-center text-foreground !px-0 bg-background/20"
                                     />
                                 </div>
                             ) : (

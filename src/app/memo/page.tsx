@@ -112,7 +112,10 @@ export default function Board() {
                     letters={letters}
                     onUpdateColours={handleUpdateColours}
                     colours={colours}
-                    onResetLetters={() => setLetters(defaultLetters)}
+                    onResetLetters={() => {
+                        console.log('test')
+                        setLetters(defaultLetters)
+                    }}
                     onResetColours={() => setColours(defaultColours)}
                 />
             </div>

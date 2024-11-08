@@ -122,16 +122,6 @@ export default function Play(props: {
         aRef.current?.focus()
     }
 
-    const handleKeyDown = (
-        event: React.KeyboardEvent<HTMLInputElement>,
-        nextInputRef: React.RefObject<HTMLInputElement | HTMLButtonElement>
-    ) => {
-        if (event.key === 'Enter' && nextInputRef.current) {
-            event.preventDefault() // Prevent form submission on Enter
-            nextInputRef.current.focus() // Focus on the next input field
-        }
-    }
-
     const resetLetters = () => {
         setA('')
         setB('')
@@ -217,9 +207,26 @@ export default function Play(props: {
                     <Input
                         disabled={state === State.Revealed}
                         ref={aRef}
-                        onKeyDown={(e) => handleKeyDown(e, bRef)}
                         value={a}
-                        onChange={(e) => setA(e.target.value.slice(0, 1))}
+                        onKeyDown={(e) => {
+                            switch (e.key) {
+                                case 'Enter':
+                                    e.preventDefault()
+                                    bRef.current?.focus()
+                                    break
+                                default:
+                                    break
+                            }
+                        }}
+                        onChange={(e) => {
+                            if (e.target.value.slice(0, 1) != a) {
+                                setA(e.target.value.slice(0, 1))
+                                if (!e.target.value) {
+                                    return
+                                }
+                                bRef.current?.focus()
+                            }
+                        }}
                         style={
                             {
                                 '--ring-colour': pieceColours[0],
@@ -232,14 +239,38 @@ export default function Play(props: {
                     <Input
                         disabled={state === State.Revealed}
                         ref={bRef}
-                        onKeyDown={(e) =>
-                            handleKeyDown(
-                                e,
-                                piece?.type === 'corner' ? cRef : submitRef
-                            )
-                        }
                         value={b}
-                        onChange={(e) => setB(e.target.value.slice(0, 1))}
+                        onKeyDown={(e) => {
+                            switch (e.key) {
+                                case 'Enter':
+                                    e.preventDefault()
+                                    ;(piece?.type === 'corner'
+                                        ? cRef
+                                        : submitRef
+                                    ).current?.focus()
+                                    break
+                                case 'Backspace':
+                                    if (!bRef.current?.value) {
+                                        aRef.current?.focus()
+                                        e.preventDefault()
+                                    }
+                                    break
+                                default:
+                                    break
+                            }
+                        }}
+                        onChange={(e) => {
+                            if (e.target.value.slice(0, 1) != b) {
+                                setB(e.target.value.slice(0, 1))
+                                if (!e.target.value) {
+                                    return
+                                }
+                                ;(piece?.type === 'corner'
+                                    ? cRef
+                                    : submitRef
+                                ).current?.focus()
+                            }
+                        }}
                         style={
                             {
                                 '--ring-colour': pieceColours[1],
@@ -253,9 +284,32 @@ export default function Play(props: {
                         <Input
                             disabled={state === State.Revealed}
                             ref={cRef}
-                            onKeyDown={(e) => handleKeyDown(e, submitRef)}
                             value={c}
-                            onChange={(e) => setC(e.target.value.slice(0, 1))}
+                            onKeyDown={(e) => {
+                                switch (e.key) {
+                                    case 'Enter':
+                                        e.preventDefault()
+                                        submitRef.current?.focus()
+                                        break
+                                    case 'Backspace':
+                                        if (!cRef.current?.value) {
+                                            bRef.current?.focus()
+                                            e.preventDefault()
+                                        }
+                                        break
+                                    default:
+                                        break
+                                }
+                            }}
+                            onChange={(e) => {
+                                if (e.target.value.slice(0, 1) != c) {
+                                    setC(e.target.value.slice(0, 1))
+                                    if (!e.target.value) {
+                                        return
+                                    }
+                                    submitRef.current?.focus()
+                                }
+                            }}
                             style={
                                 {
                                     '--ring-colour': pieceColours[2],
@@ -286,7 +340,7 @@ export default function Play(props: {
                         </Button>
                     </div>
                 ) : (
-                    <div className="flex gap-[20px]">
+                    <div className="flex gap-3">
                         <Button
                             onClick={handleTryAgain}
                             variant="outline"
