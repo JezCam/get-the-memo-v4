@@ -178,7 +178,7 @@ export default function Play(props: {
     }, [props.letters])
 
     return (
-        <Card className="flex flex-col w-full p-3 bg-card relative h-full items-center">
+        <Card className="flex flex-col w-full p-3 bg-card relative h-fit xl:h-full items-center">
             {/* Top */}
             <div className="flex justify-between items-center w-full">
                 <div className="flex gap-1.5 items-center">
