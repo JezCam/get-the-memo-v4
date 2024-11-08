@@ -211,6 +211,7 @@ export default function Play(props: {
                         onKeyDown={(e) => {
                             switch (e.key) {
                                 case 'Enter':
+                                case 'ArrowRight':
                                     e.preventDefault()
                                     bRef.current?.focus()
                                     break
@@ -243,6 +244,7 @@ export default function Play(props: {
                         onKeyDown={(e) => {
                             switch (e.key) {
                                 case 'Enter':
+                                case 'ArrowRight':
                                     e.preventDefault()
                                     ;(piece?.type === 'corner'
                                         ? cRef
@@ -254,6 +256,10 @@ export default function Play(props: {
                                         aRef.current?.focus()
                                         e.preventDefault()
                                     }
+                                    break
+                                case 'ArrowLeft':
+                                    aRef.current?.focus()
+                                    e.preventDefault()
                                     break
                                 default:
                                     break
@@ -288,6 +294,7 @@ export default function Play(props: {
                             onKeyDown={(e) => {
                                 switch (e.key) {
                                     case 'Enter':
+                                    case 'ArrowRight':
                                         e.preventDefault()
                                         submitRef.current?.focus()
                                         break
@@ -296,6 +303,10 @@ export default function Play(props: {
                                             bRef.current?.focus()
                                             e.preventDefault()
                                         }
+                                        break
+                                    case 'ArrowLeft':
+                                        bRef.current?.focus()
+                                        e.preventDefault()
                                         break
                                     default:
                                         break
@@ -333,6 +344,20 @@ export default function Play(props: {
                         <Button
                             type="submit"
                             ref={submitRef}
+                            onKeyDown={(e) => {
+                                switch (e.key) {
+                                    case 'Backspace':
+                                    case 'ArrowLeft':
+                                        e.preventDefault()
+                                        ;(piece?.type === 'corner'
+                                            ? cRef
+                                            : bRef
+                                        ).current?.focus()
+                                        break
+                                    default:
+                                        break
+                                }
+                            }}
                             className="w-full text-md py-3 h-fit focus:!ring-2 ring-offset-background gap-1.5 focus:ring-offset-2"
                         >
                             Submit

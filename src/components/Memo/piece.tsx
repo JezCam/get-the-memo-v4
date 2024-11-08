@@ -8,8 +8,6 @@ import CornerLight from './pieces/corner-light'
 export default function Piece(props: { type: string; colours: string[] }) {
     const { resolvedTheme } = useTheme()
 
-    if (!resolvedTheme) return
-
     switch (props.type) {
         case 'corner':
             return resolvedTheme == 'light' ? (
